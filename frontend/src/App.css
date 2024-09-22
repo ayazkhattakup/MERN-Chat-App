@@ -1,0 +1,293 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+  height: 100vh;
+  width: 100vh;
+  background:  url('./media/bg.png') ;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+}
+.chat-wrapper {
+  width: 75rem;
+  height: 40rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  background: rgba(28, 26, 26, 0.15); /* Light color with transparency */
+  backdrop-filter: blur(10px) saturate(180%); /* Adds blur and increases color saturation */
+  -webkit-backdrop-filter: blur(10px) saturate(180%); /* For Safari support */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border to enhance the glass effect */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  box-shadow: 0px 0px 30px rgb(193, 192, 192);
+  display: flex;
+}
+
+.chat-wrapper .chat-sidebar {
+  width: 20rem;
+  height: 100%;
+  background-color: rgba(182, 85, 17, 0.37);
+  border-radius: 10px 0px 0px 10px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 7px 10px;
+}
+
+.chat-sidebar .profile-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  padding-top: 10px;
+  align-items: center;
+}
+
+.chat-sidebar .profile-container .img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.chat-sidebar .profile-container .username {
+  color: white;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.sidebar-users {
+  width: 100%;
+  height: calc(100% - 64px);
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  overflow-y: scroll;
+  padding-right: 5px;
+}
+
+.sidebar-users::-webkit-scrollbar {
+  width: 8px;
+  background:none;
+}
+
+.sidebar-users::-webkit-scrollbar-thumb {
+  width: 8px;
+  background-color: rgba(247, 218, 191, 0.596);
+  border-radius: 10px;
+}
+
+.sidebar-users .sidebar-user {
+  padding: 0;
+  box-shadow: 1px 0px 1px rgba(221, 218, 218, 0.336);
+  color: white;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 14px;
+  text-decoration: none;
+  padding-left: 5px;
+  letter-spacing: 1px;
+  color: rgba(247, 218, 191, 0.596);
+  padding-bottom: 5px;
+  gap: 5px;
+  padding-top: 20px;
+  box-sizing: border-box;
+}
+
+.sidebar-users .sidebar-user:hover {
+  background-color: rgba(247, 218, 191, 0.596);
+}
+
+.sidebar-users .sidebar-user.active-sidebar-user {
+  background-color: rgba(247, 218, 191, 0.596);
+}
+
+.sidebar-users .sidebar-user img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.sidebar-users .sidebar-user .sidebar-user-name {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.home-container {
+  width: calc(100% - 15rem);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-container .messages-icon {
+  width: 10rem;
+  height: 10rem;
+}
+
+.home-container .no-chat-heading {
+  color: rgb(193, 192, 192);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.room-container {
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 0px 10px 10px 0;
+  height: 100%;
+}
+
+.room-container .room-navbar {
+  background-color: rgba(182, 85, 17, 0.37);
+  padding: 10px 10px;
+  border-radius: 0px 10px 0px 0px;
+  justify-content: end;
+  height: 2rem;
+  display: flex;
+  align-items:center;
+}
+
+.room-navbar .name {
+  color: white;
+  width: fit-content;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 17px;
+}
+
+.room-container .messages-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px 6px;
+  height: calc(100% - 6.5rem);
+  overflow-y: scroll;
+  box-sizing: border-box;
+}
+
+.messages-wrapper::-webkit-scrollbar {
+  background: none;
+  width: 8px;
+}
+.messages-wrapper::-webkit-scrollbar-thumb {
+  background-color: rgba(247, 218, 191, 0.596);
+  width: 8px;
+}
+
+.room-container .messages-wrapper .message.your-message {
+  display: flex;
+  width: fit-content;
+  border-radius: 0px 20px 0px 20px;
+  align-self: flex-start;
+  flex-direction: column;
+  background-color: rgba(182, 85, 17, 0.37);
+  align-items: end;
+  padding: 10px;
+  gap: 4px;
+}
+
+.room-container .messages-wrapper .message.my-message {
+  display: flex;
+  width: fit-content;
+  border-radius: 20px 0px 20px 0px;
+  align-self: flex-end;
+  flex-direction: column;
+  background-color: rgba(182, 85, 17, 0.37);
+  align-items: end;
+  padding: 10px;
+  gap: 4px;
+}
+
+
+.room-container .messages-wrapper .message .content {
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.room-container .messages-wrapper .message .timestamp {
+  color: rgba(247, 218, 191, 0.596);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 12px;
+}
+
+.message-input-form {
+  height: 3.3rem;
+  background-color: rgba(255, 255, 255, 0.615);
+  display: flex;
+  flex-direction: row;
+
+}
+
+.message-input-form input {
+  width: 94%;
+  box-sizing: border-box;
+  border:none;
+  background:none;
+  height: 100%;
+  outline: none;
+  padding: .5rem 1rem;
+  font-size: 17px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.message-input-form button {
+  width: 6%;
+  background-color: white;
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  height: 100%;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  color: white;
+  background-color: rgba(182, 85, 17, 0.37);
+}
+
+.user-search-form {
+  width: 100%;
+  margin-top: 2rem;
+  height: 4rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  gap: 10px;
+}
+
+.user-search-form input {
+  width: 13rem;
+  background-color: rgba(220, 212, 212, 0.74);
+  border: none;
+  outline: none;
+  font-size: 14px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  width: 222px;
+  padding: 5px 4px;
+}
+
+.user-search-form .result-users {
+  position: absolute;
+  background-color: rgb(182, 86, 17);
+  width: 230px;
+  padding: 1rem;
+  box-sizing: border-box;
+  top: 35px;
+  height: 10rem;
+  display: flex;
+  flex-direction: column;
+  display: none;
+}
+
